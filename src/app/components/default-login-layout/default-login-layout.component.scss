@@ -16,6 +16,7 @@ main{
     justify-content: center;
   }
 
+
   .main-section{
     gap: 8px;
 
@@ -26,6 +27,7 @@ main{
   .form-section{
     flex-grow: 0.3;
     padding: 0 35px;
+
     img{
       margin-bottom: 30px;
     }
@@ -43,23 +45,13 @@ main{
       width: 100%;
       gap: 30px;
 
-      .divider{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        width: 100%;
 
-        font-size: 14px;
-        color: #c2c2c2;
-        font-weight: 400;
-        text-transform: uppercase;
         div{
           flex-grow: 1;
           height: 2px;
           background-color: #c2c2c2;
         }
-      }
+
 
 
       button {
@@ -71,6 +63,10 @@ main{
         background: transparent;
         padding: 12px 24px;
         cursor: pointer;
+
+        &:disabled{
+          opacity: 0.8;
+        }
 
         &.btn-primary{
           background-color: $primary-color;
