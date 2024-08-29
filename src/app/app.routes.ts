@@ -4,6 +4,8 @@ import { RefrashComponent } from './pages/refresh/refrash.component';
 
 export const routes: Routes = [
   {
+    path:"",redirectTo:"login",pathMatch:"full"
+  },{
     path: "login",
     component: LoginComponent
   },
