@@ -1,16 +1,23 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { RefrashComponent } from './pages/refresh/refrash.component';
+import { SignUpComponent } from './pages/signup/signup.component';
+import { UserComponent } from './pages/user/user.component';
+import { AuthGuard } from './services/auth-guard.service';
+
 
 export const routes: Routes = [
-  {
-    path:"",redirectTo:"login",pathMatch:"full"
-  },{
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "refrash-password",
-    component: RefrashComponent
-  }
+    {
+        path: "",
+        component: LoginComponent
+    },
+    {
+        path: "signup",
+        component: SignUpComponent
+    },
+    {
+        path: "user",
+        component: UserComponent,
+        canActivate:[AuthGuard]
+    },
+
 ];
