@@ -1,64 +1,75 @@
-  @import "../../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
-  .navbar {
-    background-color: $gray-secundary-bg;
+.navbar {
+  background-color: $gray-secundary-bg;
 
-    .navbar-brand {
-      margin-left: 40px; // Ajuste esse valor conforme necessário
-      img {
-        max-height: 40px; // Mantém o ajuste de altura do logo
-      }
-    }
-
-    .btn{
-      margin-right: 60px;
-    }
-
-
-    .navbar-toggler {
-      border-color: $secundary-color;
-    }
-
-    .navbar-toggler-icon {
-      background-color: $secundary-color; // Ajuste o ícone do toggler
-    }
-
-    .navbar-nav .nav-link {
-      color: $text-color;
-      position: relative;
-      text-decoration: none;
-      padding: 8px 15px; // Adiciona um pouco de espaço ao redor do link
-
-      &:hover {
-        color: $primary-color;
-        background-color: rgba($primary-color, 0.1); // Fundo sutil ao passar o mouse
-        border-radius: 5px; // Bordas arredondadas para um efeito mais suave
-
-        &::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: -2px; // Ajuste a posição da linha conforme necessário
-          width: 100%;
-          height: 2px; // Espessura da linha
-          background-color: $primary-color;
-          transition: width 0.3s ease, background-color 0.3s ease; // Efeito de transição suave
-          width: 0; // Inicialmente sem linha visível
-        }
-      }
-
-      &:focus, &:active {
-        color: $primary-color; // Mantém a cor ao focar ou ativar
-      }
-    }
-
-    .btn-primary {
-      background-color: $primary-color;
-      border: none;
-
-      &:hover {
-        background-color: darken($primary-color, 10%);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Adiciona sombra ao botão para um efeito de destaque
-      }
+  .navbar-brand {
+    margin-left: 40px; // Ajuste esse valor conforme necessário
+    img {
+      max-height: 40px; // Mantém o ajuste de altura do logo
     }
   }
+
+  .btn{
+    margin-right: 60px;
+  }
+
+  .navbar-toggler {
+    border-color: $secundary-color;
+    background-color: transparent; // Define fundo transparente para o toggler
+  }
+
+  .navbar-toggler-icon {
+    background-color: $secundary-color; // Ajuste o ícone do toggler
+  }
+
+  .navbar-nav .nav-link {
+    color: $text-color;
+    position: relative;
+    text-decoration: none;
+    padding: 8px 15px; // Adiciona um pouco de espaço ao redor do link
+
+    &:hover {
+      color: $primary-color;
+      background-color: rgba($primary-color, 0.1); // Fundo sutil ao passar o mouse
+      border-radius: 5px; // Bordas arredondadas para um efeito mais suave
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px; // Ajuste a posição da linha conforme necessário
+        width: 100%;
+        height: 2px; // Espessura da linha
+        background-color: $primary-color;
+        transition: width 0.3s ease, background-color 0.3s ease; // Efeito de transição suave
+        width: 0; // Inicialmente sem linha visível
+      }
+    }
+
+    &:focus, &:active {
+      color: $primary-color; // Mantém a cor ao focar ou ativar
+    }
+  }
+
+  .btn-primary {
+    background-color: $primary-color;
+    border: none;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Adiciona sombra ao botão para um efeito de destaque
+    }
+  }
+
+  // Esconde o ícone do toggle e mostra o botão de login apenas em telas grandes
+  @media (max-width: 992px) {
+    .d-none.d-lg-flex {
+      display: none;
+    }
+
+    .navbar-toggler {
+      display: block;
+    }
+  }
+}
