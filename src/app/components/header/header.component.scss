@@ -1,81 +1,69 @@
 @import "../../../styles/variables.scss"; /* Importa as variáveis de cor */
-*{
-  font-family: "Montserrat", Sans-serif;
-  font-weight: 200;
-}
+
 .navbar {
-  background-color: transparent !important; /* Torna o fundo transparente */
-  box-shadow: none; /* Remove qualquer sombra */
-  position: absolute; /* Coloca a navbar em posição absoluta */
-  width: 100%; /* Faz a navbar ocupar toda a largura */
-  z-index: 10; /* Garante que a navbar esteja acima do conteúdo */
-
-  .nav-link {
-    color: white !important; /* Ajusta a cor do texto para branco */
-    font-size: 1.2rem; /* Aumenta o tamanho da fonte */
-    margin-left: 2rem; /* Aumenta o espaçamento entre os links */
-    margin-right: 0.4rem; /* Aumenta o espaçamento entre os links */
-    transition: color 0.3s ease, transform 0.3s ease; /* Adiciona transições suaves para cor e transformação */
-
-
-    &:hover, &.active {
-      color: $primary-color !important; /* Muda a cor ao hover ou quando ativo */
-      transform: translateY(-3px); /* Move o link para cima levemente ao hover ou quando ativo */
-    }
-  }
-
-  .navbar-brand {
-    img {
-      transition: transform 0.3s ease; /* Adiciona transição suave à imagem */
-
-      &:hover {
-        transform: scale(1.1); /* Aumenta a escala da imagem ao hover */
-      }
-    }
-  }
-
-  .navbar-toggler {
-    border: none; /* Remove a borda do botão toggle */
-    transition: transform 0.3s ease; /* Adiciona transição suave ao botão */
-
-    &:hover {
-      transform: rotate(90deg); /* Rotaciona o botão ao hover */
-    }
-  }
-
-  .navbar-toggler-icon {
-    background-image: none; /* Remove o ícone padrão do Bootstrap */
-    font-size: 1.25rem; /* Tamanho do ícone */
-    color: $primary-color; /* Cor do ícone */
-  }
-
-  .collapse.show {
-    animation: slideDown 0.5s forwards; /* Adiciona uma animação de deslizamento ao abrir o menu */
-  }
+  background-color: transparent !important; /* Mantém o fundo transparente */
+  position: absolute; /* Faz o header não seguir o scroll */
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 5px 20px; /* Reduz o padding para diminuir a altura do header */
+  box-shadow: none !important; /* Remove qualquer sombra do header */
 }
 
-@keyframes slideDown {
-  0% {
-    max-height: 0;
-    opacity: 0;
-  }
-  100% {
-    max-height: 500px; /* Define um valor máximo para o deslizamento */
-    opacity: 1;
-  }
+
+.navbar.navbar-light {
+  box-shadow: none !important; /* Remove a sombra em navbars claras */
 }
 
-@media (max-width: 992px) {
-  .navbar-collapse {
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo semitransparente no menu colapsado */
-    transition: background-color 0.3s ease; /* Transição suave para a mudança de cor de fundo */
-  }
+.navbar-brand,
+.navbar-nav .nav-link {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-  .nav-link {
-    color: $light-color !important; /* Ajusta a cor dos links no menu colapsado para um tom mais claro */
+.navbar.loaded .navbar-brand,
+.navbar.loaded .nav-link {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    &:hover {
-      color: $primary-color !important; /* Cor primária ao hover em dispositivos móveis */
-    }
-  }
+.navbar-nav .nav-item .nav-link {
+  color: $text-color;
+  position: relative;
+  padding: 5px 15px; /* Reduz o padding interno dos links para diminuir sua altura */
+  margin-right: 40px !important; /* Adiciona espaçamento entre os links e usa !important para garantir aplicação */
+}
+
+.navbar-nav .nav-item:last-child .nav-link {
+  margin-right: 0 !important; /* Remove o margin da direita do último link para melhor alinhamento */
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: $prime-color;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.4s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-brand img {
+  max-height: 45px; /* Ajusta a altura máxima da logo para se adequar ao header menor */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.container {
+  padding-top: 10px; /* Ajuste o valor conforme necessário para evitar sobreposição do conteúdo */
 }
