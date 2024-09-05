@@ -1,0 +1,32 @@
+.content-container {
+  background-color: #fafafa;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  margin-bottom: 20px;
+}
+
+.info-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.background-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
+}
+
+.background-image:hover {
+  opacity: 0.5;
+}
