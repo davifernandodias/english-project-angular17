@@ -13,7 +13,7 @@ export class ContentHomeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const options = {
-      strings: ['Welcome to School', 'English School'],
+      strings: ['Aprenda de forma divertida.', 'Transformando sua rotina em aprendizagem.'],
       typeSpeed: 50,
       backSpeed: 25,
       backDelay: 1000,

@@ -1,39 +1,178 @@
 @import "../../../../styles/variables.scss"; /* Importa as variáveis de cor */
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .content-home {
   background: url('/assets/svg/Frame 1 (1).svg') no-repeat center center;
   background-size: cover;
   margin-top: 150px;
-  padding-bottom: 160px;
+  padding-bottom: 70px;
   background-attachment: local; /* Faz com que o fundo se mova com o contêiner */
   color: $text-color; /* Ajusta a cor do texto para o que deseja */
 }
-
 
 .title {
   color: $primary-color;
   font-weight: bold;
   margin-bottom: 5px;
-  min-height: 60px; /* Ajuste a altura mínima conforme necessário */
+  margin-left: 200px;
+  min-height: 80px; /* Ajuste a altura mínima conforme necessário */
+  position: relative;
+  overflow: hidden;
+  animation: slide-in 1s ease-out; /* Efeito de entrada suave */
+
+  /* Adiciona um efeito de "pintura" da esquerda para a direita */
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $primary-color;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    animation: underline 1.5s ease-out forwards;
+  }
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes underline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+.sub-title {
+  margin-left: 200px;
+  margin-top: 20px;
+  color: $secundary-color;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  animation: fade-in 2s ease-in-out; /* Efeito fluido de fade-in */
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .description {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 20px;
+  margin-left: 200px;
   margin-bottom: 15px;
   color: $text-color;
+  display: flex;
+  align-items: center; /* Centraliza o ícone e o texto */
+
+  i {
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    color: $primary-color; /* Cor do ícone igual ao $primary-color */
+  }
 }
 
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-img {
+/* Efeito flutuante na imagem */
+.img-background {
   animation: float 3s ease-in-out infinite;
   max-width: 100%;
+  margin-left: 200px;
+  margin-top: -40px;
+  height: 550px;
 }
 
+.home-footer {
+  background-color: $gray-bg;
+  padding: 30px;
+  margin-top: -80px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icons-wrapper {
+    display: flex;
+    animation: scroll-icons 20s linear infinite;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px;
+    margin-left: 200px;
+    color: $text-color;
+
+    i {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: $primary-color;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    p {
+      color: $secundary-color;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    &:hover i {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@keyframes scroll-icons {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.btn-buttom {
+  background-color: $primary-color; /* Cor do botão */
+  color: #fff; /* Cor do texto */
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50px; /* Bordas arredondadas para um visual mais fluido */
+  margin-left: 200px;
+  margin-top: 20px;
+  transition: background-color 0.4s ease, transform 0.3s ease; /* Efeito suave ao passar o mouse */
+
+  &:hover {
+    background-color: lighten($primary-color, 10%); /* Clareia a cor ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(112, 1, 253, 0.3); /* Sombra suave ao passar o mouse */
+  }
+
+  &:active {
+    transform: scale(0.98); /* Efeito de clique */
+    box-shadow: 0px 5px 10px rgba(112, 1, 253, 0.2); /* Sombra reduzida no clique */
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Aplicando animação de entrada suave */
+.btn-buttom {
+  animation: slide-up 1s ease-out;
+}
