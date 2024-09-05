@@ -1,5 +1,6 @@
 @import "../../../../styles/variables.scss"; /* Importa as variáveis de cor */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .content-home {
   background: url('/assets/svg/Frame 1 (1).svg') no-repeat center center;
   background-size: cover;
@@ -74,13 +75,47 @@
   }
 }
 
-/* Efeito flutuante na imagem */
+.btn-buttom {
+  background-color: $primary-color;
+  color: $light-color;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-left: 200px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%); /* Escurece a cor do botão ao passar o mouse */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão */
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.5); /* Adiciona uma sombra ao redor do botão */
+  }
+}
+
 .img-background {
-  animation: float 3s ease-in-out infinite;
-  max-width: 100%;
+  animation: float 3s ease-in-out infinite; /* Aplica o efeito de flutuação */
+  max-width: 100%; /* Garante que a imagem se adapte ao tamanho da coluna */
   margin-left: 200px;
   margin-top: -40px;
   height: 550px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0); /* Posição inicial */
+  }
+  50% {
+    transform: translateY(-20px); /* Movimento para cima */
+  }
+  100% {
+    transform: translateY(0); /* Retorna à posição inicial */
+  }
 }
 
 .home-footer {
@@ -105,7 +140,6 @@
     flex-direction: column;
     align-items: center;
     margin: 0 30px;
-    margin-left: 200px;
     color: $text-color;
 
     i {
@@ -134,45 +168,4 @@
   100% {
     transform: translateX(-100%);
   }
-}
-
-.btn-buttom {
-  background-color: $primary-color; /* Cor do botão */
-  color: #fff; /* Cor do texto */
-  border: none;
-  padding: 10px 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 50px; /* Bordas arredondadas para um visual mais fluido */
-  margin-left: 200px;
-  margin-top: 20px;
-  transition: background-color 0.4s ease, transform 0.3s ease; /* Efeito suave ao passar o mouse */
-
-  &:hover {
-    background-color: lighten($primary-color, 10%); /* Clareia a cor ao passar o mouse */
-    transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
-    box-shadow: 0px 8px 15px rgba(112, 1, 253, 0.3); /* Sombra suave ao passar o mouse */
-  }
-
-  &:active {
-    transform: scale(0.98); /* Efeito de clique */
-    box-shadow: 0px 5px 10px rgba(112, 1, 253, 0.2); /* Sombra reduzida no clique */
-  }
-}
-
-@keyframes slide-up {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Aplicando animação de entrada suave */
-.btn-buttom {
-  animation: slide-up 1s ease-out;
 }
