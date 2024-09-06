@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import Typed from 'typed.js';
+import { HomeFooterComponent } from "./home-footer/home-footer.component";
 
 @Component({
   selector: 'app-content-home',
   standalone: true,
-  imports: [],
+  imports: [HomeFooterComponent],
   templateUrl: './content-home.component.html',
   styleUrl: './content-home.component.scss'
 })

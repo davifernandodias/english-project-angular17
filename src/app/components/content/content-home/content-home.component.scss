@@ -120,58 +120,6 @@
   }
 }
 
-.home-footer {
-  background-color: $gray-bg;
-  padding: 30px;
-  margin-top: -80px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .icons-wrapper {
-    display: flex;
-    animation: scroll-icons 20s linear infinite;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 30px;
-    margin-left: 150px;
-    color: $text-color;
-
-    i {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      color: $primary-color;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    p {
-      color: $secundary-color;
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    &:hover i {
-      transform: scale(1.2);
-    }
-  }
-}
-
-@keyframes scroll-icons {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 @keyframes slide-up {
   0% {
     transform: translateY(20px);
