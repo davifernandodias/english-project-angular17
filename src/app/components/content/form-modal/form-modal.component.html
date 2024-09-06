@@ -1,27 +1,29 @@
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-mdb-backdrop="static"
-  data-mdb-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agendar Aula</h5>
-        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+<div class="modal" id="myModal">
+  <div class="modal-content">
+    <span class="close-btn" (click)="closeModal()">&times;</span>
+
+    <h2>Agendar aula</h2>
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" placeholder="Edimilson Oliveira Da Silva" [(ngModel)]="formData.name" name="name" required>
       </div>
-      <div class="modal-body">
-        <!-- Coloque aqui o conteúdo do seu formulário -->
-        <p>Formulário para agendar aula.</p>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="email@gmail.cm" [(ngModel)]="formData.email" name="email" required>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Confirmar</button>
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" placeholder="(11) 111763532" [(ngModel)]="formData.phone" name="phone" required>
       </div>
-    </div>
+      <button type="submit" class="submit-btn">Enviar</button>
+    </form>
   </div>
 </div>
+
+<!-- Botão para abrir o modal -->
+<button type="button" class="btn-open-modal" (click)="openModal()">Agendar aula</button>
+
+<!-- Or redirect for whatsap -->
+ <!--<button type="button" class="btn-open-modal" (click)="redirectWsap()">Agendar aula</button>
+ -->

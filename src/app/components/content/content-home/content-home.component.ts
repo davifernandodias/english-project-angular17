@@ -1,13 +1,14 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import Typed from 'typed.js';
 import { HomeFooterComponent } from "./home-footer/home-footer.component";
+import { FormModalComponent } from "../form-modal/form-modal.component";
 
 @Component({
   selector: 'app-content-home',
   standalone: true,
-  imports: [HomeFooterComponent],
+  imports: [HomeFooterComponent, FormModalComponent],
   templateUrl: './content-home.component.html',
-  styleUrl: './content-home.component.scss'
+  styleUrls: ['./content-home.component.scss']
 })
 export class ContentHomeComponent implements AfterViewInit {
   @ViewChild('typedOutput') typedOutput!: ElementRef;

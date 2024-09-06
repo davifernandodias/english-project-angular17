@@ -1,0 +1,136 @@
+@import "../../../../styles/variables.scss"; /* Importa as variáveis de cor */
+
+/* Estilização do modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid $gray-secundary-bg;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  animation: fade-in 0.5s ease-out; /* Animação de entrada */
+}
+/* Aplicando animação de entrada suave */
+.btn-open-modal {
+  animation: slide-up 1s ease-out;
+  background-color: $primary-color; /* Cor do botão, substituindo $primary-color */
+  color: #fff; /* Cor do texto */
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50px; /* Bordas arredondadas para um visual mais fluido */
+  margin-left: 200px;
+  margin-top: 20px;
+  transition: background-color 0.4s ease, transform 0.3s ease; /* Efeito suave ao passar o mouse */
+
+}
+
+/* Efeito ao passar o mouse */
+.btn-open-modal:hover {
+  background-color: #8C32FD; /* Clareia a cor ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
+  box-shadow: 0px 8px 15px rgba(112, 1, 253, 0.3); /* Sombra suave ao passar o mouse */
+}
+
+/* Efeito ao clicar no botão */
+.btn-open-modal:active {
+  transform: scale(0.98); /* Efeito de clique */
+  box-shadow: 0px 5px 10px rgba(112, 1, 253, 0.2); /* Sombra reduzida no clique */
+}
+
+/* Animação de entrada suave */
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Estilização dos elementos do formulário */
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    font-size: 1rem;
+    color: $text-color;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $gray-secundary-bg;
+    border-radius: 5px;
+    background-color: $light-color;
+    font-size: 1rem;
+    color: $text-color;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.submit-btn {
+  background-color: $primary-color;
+  color: #fff;
+  margin-top: 40px;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: $secundary-color;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Botão de fechar modal */
+.close-btn {
+  color: $text-color;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $prime-color;
+  }
+}
+
