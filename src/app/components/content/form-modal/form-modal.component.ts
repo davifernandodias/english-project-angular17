@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./form-modal.component.scss']
 })
 export class FormModalComponent {
+  @Input() buttonText: string = 'Agendar aula';
+
   redirectWsap(){
     window.location.href = "https://wa.me/5516988453494?text=";
   }
@@ -37,5 +39,4 @@ export class FormModalComponent {
     console.log('Form Submitted:', this.formData);
     this.closeModal(); // Fechar o modal após o envio
   }
-
 }

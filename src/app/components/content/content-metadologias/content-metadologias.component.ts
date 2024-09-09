@@ -1,22 +1,43 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormModalComponent } from "../form-modal/form-modal.component";
+import { NgIf } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-content-metadologias',
   standalone: true,
-  imports: [],
+  imports: [FormModalComponent, NgIf],
   templateUrl: './content-metadologias.component.html',
-  styleUrl: './content-metadologias.component.scss'
+  styleUrls: ['./content-metadologias.component.scss']
 })
-export class ContentMetadologiasComponent implements AfterViewInit {
+export class ContentMetadologiasComponent implements OnInit {
 
-  ngAfterViewInit(): void {
-    const sections = document.querySelectorAll('.info-section');
-    sections.forEach((section, index) => {
-      setTimeout(() => {
-        section.classList.add('show');
-      }, index * 500); // Delay for each section
-    });
+
+  constructor(private elementRef: ElementRef) {}
+
+  ngOnInit(): void {
+    const options = {
+      root: null,
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, options);
+
+    const textSection = this.elementRef.nativeElement.querySelector('.text-section');
+    if (textSection) observer.observe(textSection);
+
+    const featuresSection = this.elementRef.nativeElement.querySelector('.features');
+    if (featuresSection) observer.observe(featuresSection);
+
+
   }
-
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import "../../../../styles/variables.scss"; /* Importa as variáveis de cor */
 
 /* Estilização do modal */
@@ -12,6 +13,7 @@
   background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
   backdrop-filter: blur(2px);
   z-index: 10;
+  animation: fade-in 0.5s ease-out; /* Animação de fade-in para o fundo */
 }
 
 .modal-content {
@@ -23,39 +25,61 @@
   max-width: 500px;
   border-radius: 10px;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  animation: fade-in 0.5s ease-out; /* Animação de entrada */
+  animation: scale-up 0.5s ease-out; /* Animação de escala ao abrir o modal */
 }
-/* Aplicando animação de entrada suave */
+
+/* Efeito de fade-in para o fundo do modal */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Efeito de escala ao abrir o modal */
+@keyframes scale-up {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Botão para abrir o modal */
 .btn-open-modal {
   animation: slide-up 1s ease-out;
-  background-color: $primary-color; /* Cor do botão, substituindo $primary-color */
+  background-color: $primary-color; /* Cor do botão */
   color: #fff; /* Cor do texto */
   border: none;
   padding: 10px 30px;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 50px; /* Bordas arredondadas para um visual mais fluido */
+  border-radius: 50px; /* Bordas arredondadas */
   margin-left: 200px;
   margin-top: 20px;
   transition: background-color 0.4s ease, transform 0.3s ease; /* Efeito suave ao passar o mouse */
 
+  /* Efeito ao passar o mouse */
+  &:hover {
+    background-color: #8C32FD; /* Clareia a cor ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+    box-shadow: 0px 8px 15px rgba(112, 1, 253, 0.3); /* Sombra suave */
+  }
+
+  /* Efeito ao clicar no botão */
+  &:active {
+    transform: scale(0.98); /* Efeito de clique */
+    box-shadow: 0px 5px 10px rgba(112, 1, 253, 0.2); /* Sombra reduzida */
+  }
 }
 
-/* Efeito ao passar o mouse */
-.btn-open-modal:hover {
-  background-color: #8C32FD; /* Clareia a cor ao passar o mouse */
-  transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
-  box-shadow: 0px 8px 15px rgba(112, 1, 253, 0.3); /* Sombra suave ao passar o mouse */
-}
-
-/* Efeito ao clicar no botão */
-.btn-open-modal:active {
-  transform: scale(0.98); /* Efeito de clique */
-  box-shadow: 0px 5px 10px rgba(112, 1, 253, 0.2); /* Sombra reduzida no clique */
-}
-
-/* Animação de entrada suave */
+/* Efeito ao passar o mouse no botão */
 @keyframes slide-up {
   0% {
     transform: translateY(20px);
@@ -76,6 +100,7 @@
     color: $text-color;
     margin-bottom: 5px;
     display: block;
+    font-family: 'Poppins', sans-serif; /* Aplicando fonte */
   }
 
   input {
@@ -86,11 +111,24 @@
     background-color: $light-color;
     font-size: 1rem;
     color: $text-color;
-    transition: border-color 0.3s ease;
+    font-family: 'Poppins', sans-serif; /* Aplicando fonte */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* Efeito de placeholder */
+    &::placeholder {
+      color: $text-color;
+      opacity: 0.6; /* Opacidade do placeholder */
+      transition: color 0.3s ease;
+    }
 
     &:focus {
       border-color: $primary-color;
       outline: none;
+      box-shadow: 0 0 5px rgba($primary-color, 0.3); /* Sombra ao focar */
+    }
+
+    &:focus::placeholder {
+      color: $primary-color; /* Cor do placeholder ao focar */
     }
   }
 }
@@ -133,4 +171,3 @@
     color: $prime-color;
   }
 }
-

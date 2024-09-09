@@ -1,1 +1,15 @@
-<p>content-feedbacks works!</p>
+<div class="teachers-section">
+  <p>os melhores professores</p>
+  <h1>Eu e os melhores professores, juntos, para você<br>não precisar escolher com quem aprender.</h1>
+  <div class="teachers-container">
+    <div *ngFor="let teacher of teachers" class="teacher-card">
+      <div class="img-box">
+        <img [src]="teacher.image" alt="Professor" />
+      </div>
+      <div class="content">
+        <h2>{{ teacher.name }}</h2>
+        <p>{{ teacher.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
