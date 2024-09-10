@@ -1,0 +1,12 @@
+<div class="feedback-container">
+  <div class="feedback-card" *ngFor="let feedback of feedbacks; let i = index" [ngClass]="{ 'left': i % 2 === 0, 'right': i % 2 !== 0 }">
+    <div class="feedback-icon">⭐⭐⭐⭐⭐</div>
+    <div class="feedback-content">
+      <img [src]="feedback.img" alt="{{feedback.name}}" class="feedback-img">
+      <div class="feedback-text">
+        <h4>{{ feedback.name }}</h4>
+        <p>{{ feedback.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>
