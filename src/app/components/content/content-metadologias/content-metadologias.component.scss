@@ -1,13 +1,11 @@
 @import "../../../../styles/variables.scss"; /* Importa as variáveis de cor */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-
 .content-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   padding: 2rem;
   background-color: white;
   font-family: 'Poppins', sans-serif;
@@ -93,7 +91,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
 
-
       &:hover {
         transform: scale(1.05);
         filter: brightness(1.1);
@@ -117,16 +114,105 @@
         line-height: 1.5;
       }
     }
+  }
 
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .text-section {
+      flex-direction: column;
+      text-align: center;
+
+      .center-image {
+        width: 60%;
+        height: auto;
+        margin-bottom: 1rem;
+        margin-top: 0;
+      }
+
+      .right-text {
+        margin-left: 0;
+        margin-top: 1rem;
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .features {
+      .feature-item {
+        width: 45%;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .text-section {
+      padding: 1rem;
+
+      .center-image {
+        width: 80%;
+      }
+
+      .right-text {
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .features {
+      .feature-item {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .text-section {
+      padding: 1rem;
+
+      .center-image {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .right-text {
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    .features {
+      .feature-item {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
   }
 }
-.btn-app-form-modal{
-  margin-left: -200px;
+
+.btn-app-form-modal {
+  margin-left: 0;
   padding: 15px 40px;
   font-size: 1.5rem;
   border-radius: 60px;
-  width: auto; /* Ajuste para largura automática para não sobrescrever o padding */
-  height: auto; /* Ajuste para altura automática para não sobrescrever o padding */
+  width: auto;
+  height: auto;
   display: inline-block;
 }
-

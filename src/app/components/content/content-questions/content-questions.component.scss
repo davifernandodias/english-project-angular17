@@ -1,0 +1,120 @@
+/* content-questions.component.scss */
+@import "../../../../styles/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.content-question {
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    .emoji-icon {
+      width: 80px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: $primary-color;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  .questions-content {
+    .question-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: #f8f8f8;
+        transform: translateY(-2px);
+      }
+
+      .question-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 1.25rem;
+          font-weight: 500;
+          margin: 0;
+          color: $text-color;
+          text-align: left; /* Garante que o texto da pergunta fique alinhado à esquerda */
+        }
+
+        img {
+          transition: transform 0.3s;
+          order: 2; /* Faz a seta ficar no lado direito */
+        }
+
+        .rotated {
+          transform: rotate(180deg);
+        }
+      }
+
+      .answer {
+        margin-top: 15px;
+        color: $text-color;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: left;
+      }
+    }
+  }
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .content-question {
+    padding: 30px 15px;
+
+    .header h1 {
+      font-size: 2rem;
+    }
+
+    .questions-content .question-item {
+      padding: 15px;
+    }
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .content-question {
+    padding: 20px 10px;
+
+    .header h1 {
+      font-size: 1.5rem;
+    }
+
+    .questions-content .question-item {
+      padding: 10px;
+    }
+
+    .question-header {
+      flex-direction: column; /* Empilha a pergunta e a seta no celular */
+      align-items: flex-start;
+
+      img {
+        margin-top: 10px;
+        align-self: flex-end; /* Seta alinhada à direita no celular */
+      }
+    }
+  }
+}

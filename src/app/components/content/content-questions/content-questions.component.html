@@ -1,0 +1,18 @@
+<div class="content-question">
+  <div class="header">
+    <img src="assets/png/emoji-question.webp" class="emoji-icon" alt="Emoji Pergunta">
+    <h1>Perguntas frequentes sobre as aulas</h1>
+  </div>
+
+  <div class="questions-content">
+    <div class="question-item" *ngFor="let question of questions" (click)="toggleAnswer(question)">
+      <div class="question-header">
+        <h2>{{ question.text }}</h2>
+        <img class="seta" src="assets/svg/seta-pra-baixo.svg" [ngClass]="{'rotated': question.showAnswer}" alt="Seta para baixo">
+      </div>
+      <p *ngIf="question.showAnswer" class="answer">
+        {{ question.answer }}
+      </p>
+    </div>
+  </div>
+</div>
