@@ -8,7 +8,7 @@
   justify-content: center;
   margin-top: 3rem;
   padding: 5rem;
-  background-color: #320361 ;
+  background-color: #320361;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   border-radius: 15px;
@@ -24,6 +24,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+  app-form-modal {
+    margin-top:2rem;
+    margin-right: 250px; /* Centraliza o botão em telas pequenas */
+  }
 
   .text-content {
     text-align: center;
@@ -31,9 +35,8 @@
 
     p {
       font-size: 1.5rem;
-      margin-left: -40px;
-      font-weight: 400;
       margin-bottom: 1rem;
+      margin-left: 0; /* Remove o deslocamento em telas menores */
     }
 
     h1 {
@@ -51,8 +54,8 @@
     position: relative;
 
     img {
-      width: 900px;
-      max-width: 2000px;
+      width: 100%; /* Ajusta a largura da imagem para telas menores */
+      max-width: 900px; /* Limita a largura máxima */
       height: auto;
       border-radius: 10px;
       margin-bottom: 1rem;
@@ -60,7 +63,64 @@
 
     app-form-modal {
       margin-top: 2rem;
-      margin-left: -290px;
+      margin-left: 0; /* Centraliza o botão para telas menores */
     }
+  }
+
+  /* Media queries para telas menores */
+  @media (max-width: 992px) {
+    padding: 3rem; /* Reduz o padding em telas médias */
+
+    .text-content {
+      p {
+        font-size: 1.25rem; /* Ajusta o tamanho do texto */
+      }
+
+      h1 {
+        font-size: 2rem; /* Reduz o tamanho do título */
+      }
+    }
+
+    .content-section img {
+      max-width: 700px; /* Ajusta o tamanho da imagem para telas menores */
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem; /* Reduz o padding para telas menores */
+
+    .text-content {
+      p {
+        font-size: 1rem; /* Ajusta o tamanho do texto */
+      }
+
+      h1 {
+        font-size: 1.75rem; /* Reduz o tamanho do título */
+      }
+    }
+
+    .content-section img {
+      max-width: 100%; /* Ocupa toda a largura disponível */
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 1.5rem;
+
+    .text-content {
+      p {
+        font-size: 0.9rem; /* Ajuste fino para textos pequenos */
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .content-section img {
+      max-width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+
   }
 }

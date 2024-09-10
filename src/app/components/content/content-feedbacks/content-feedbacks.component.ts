@@ -15,19 +15,19 @@ export class ContentFeedbacksComponent implements OnInit {
   teachers = [
     {
       name: 'Professor A',
-      image: 'assets/png/erick.png',
+      image: 'assets/png/663a24d823113e027deb0638_Paula Gabriela.webp',
       instagram: 'https://instagram.com/professorA',
       description: 'Descrição do Professor A'
     },
     {
       name: 'Professor B',
-      image: 'assets/png/erick.png',
+      image: 'assets/png/663a24d823113e027deb0638_Paula Gabriela.webp',
       instagram: 'https://instagram.com/professorB',
       description: 'Descrição do Professor B'
     },
     {
       name: 'Professor C',
-      image: 'assets/png/erick.png',
+      image: 'assets/png/663a24d823113e027deb0638_Paula Gabriela.webp',
       instagram: 'https://instagram.com/professorC',
       description: 'Descrição do Professor C'
     }
